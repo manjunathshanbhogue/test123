@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<!-- <form id="myform" method="post" action="{% url 'social:disconnect' 'google-oauth2' %}5/?next={{request.path }}">
+    {% csrf_token %}
+    <input type="hidden" name="name" value="value" /> 
+    <a onclick="document.getElementById('myform').submit();">discon</a>
+</form> -->
+
+<a href="{% url 'home' %}" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+{% endblock %}
